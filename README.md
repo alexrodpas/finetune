@@ -1,6 +1,4 @@
-# 👩‍💻 Fine-tune Phi-3-mini model to generate Python Code
-
-## phi3-mini-python
+# Fine-tune Phi-3-mini-4k model with LoRA or QLoRA to generate Python Code
 
 **Phi3-mini** model fine-tuned on the **python_code_instructions_18k_alpaca Code instructions dataset** using **LoRA** or **QLoRA** with [PEFT](https://github.com/huggingface/peft) and bitsandbytes library.
 
@@ -8,7 +6,7 @@
 
 Notebook: `phi3-finetune-lora-pycoder.ipynb`
 
-[Model in Huggingface](https://huggingface.co/alexrodpas/phi3-mini-4k-lora-python-code-18k)
+[Model in Huggingface](https://huggingface.co/alexrodpas/phi3-mini-4k-lora-pycode-18k)
 
 [Adapter in Huggingface](https://huggingface.co/alexrodpas/phi3-mini-LoRA)
 
@@ -16,13 +14,13 @@ Notebook: `phi3-finetune-lora-pycoder.ipynb`
 
 Notebook: `phi3-finetune-qlora-pycoder.ipynb`
 
-[Model in Huggingface](https://huggingface.co/alexrodpas/phi3-mini-4k-qlora-python-code-18k)
+[Model in Huggingface](https://huggingface.co/alexrodpas/phi3-mini-4k-qlora-pycode-18k)
 
 [Adapter in Huggingface](https://huggingface.co/alexrodpas/phi3-mini-QLoRA)
 
 ## Problem description
 
-Our goal is to fine-tune the pretrained model, Phi3-mini. amodel with 3.8B parameters, using both the PEFT method, and **LoRA** or a 4-bit quantization **QLoRA** to produce a Python coder.Then we evaluate the performance of both models. We fine-tune the model using a NVIDIA A100 GPU to get better performance. Alternatively, you can try out to run the fine-tuning on for example a T4 in Google Colab by adjusting some parameters (like batch size) to reduce memory consumption.
+Our goal is to fine-tune the pretrained model, Phi3-mini, a LLM with 3.8B parameters, using both the PEFT method, and **LoRA** or a 4-bit quantization **QLoRA** to produce a Python coder. Then we evaluate the performance of both models. We fine-tune the model using a NVIDIA A100 GPU to get better performance. Alternatively, you can try out to run the fine-tuning on for example a T4 in Google Colab by adjusting some parameters (like batch size) to reduce memory consumption.
 
 ## Dataset
 
@@ -33,9 +31,9 @@ For our fine-tuning process, we use this [dataset](https://huggingface.co/datase
 
 [Phi-3-mini-4k-instruct](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct)
 
-The Phi-3-Mini-4K-Instruct is a 3.8B parameters, lightweight, state-of-the-art open model trained with the Phi-3 datasets that includes both synthetic data and the filtered publicly available websites data with a focus on high-quality and reasoning dense properties. The model belongs to the Phi-3 family with the Mini version in two variants of the context length (in tokens) that it can support: 4K and 128K.
+The Phi-3-Mini-4k-Instruct is a 3.8B parameters, lightweight, state-of-the-art open LLM trained with the Phi-3 datasets that includes both synthetic data and the filtered publicly available websites data with a focus on high-quality and reasoning dense properties. The model belongs to the Phi-3 family with the Mini version (3.8B parameters) in two variants of the context length (in tokens) that it can support: 4K and 128K.
 
-The model has underwent a post-training process that incorporates both supervised fine-tuning and direct preference optimization for the instruction following and safety measures. When assessed against benchmarks testing common sense, language understanding, math, code, long context and logical reasoning, Phi-3 Mini-4K-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
+The model has underwent a post-training process that incorporates both supervised fine-tuning and direct preference optimization for the instruction following and safety measures. When assessed against benchmarks testing common sense, language understanding, math, code, long context and logical reasoning, Phi-3 Mini-4k-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
 
 
 ### Example of usage
@@ -44,7 +42,7 @@ The model has underwent a post-training process that incorporates both supervise
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-model_id = "alexrodpas/phi3-mini-4k-qlora-python-code-18k"
+model_id = "alexrodpas/phi3-mini-4k-qlora-pycode-18k"
 device_map = "cuda"
 
 tokenizer = AutoTokenizer.from_pretrained(model_id,trust_remote_code=True)
