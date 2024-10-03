@@ -22,7 +22,7 @@ Notebook: `phi3-finetune-qlora-pycoder.ipynb`
 
 ## Problem description
 
-Our goal is to fine-tune the pretrained model, Phi3-mini. amodel with 3.8B parameters, using both the PEFT method, and **LoRA** or a 4-bit quantization **QLoRA** to produce a Python coder.Then we evaluate the performance of both models. We fine-tune using a NVIDIA A100 GPU to get better performance. Alternatively, you can try out to run it on for example a T4 in Google Colab by adjusting some parameters (like batch size) to reduce memory consumption.
+Our goal is to fine-tune the pretrained model, Phi3-mini. amodel with 3.8B parameters, using both the PEFT method, and **LoRA** or a 4-bit quantization **QLoRA** to produce a Python coder.Then we evaluate the performance of both models. We fine-tune the model using a NVIDIA A100 GPU to get better performance. Alternatively, you can try out to run the fine-tuning on for example a T4 in Google Colab by adjusting some parameters (like batch size) to reduce memory consumption.
 
 ## Dataset
 
@@ -44,7 +44,7 @@ The model has underwent a post-training process that incorporates both supervise
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-model_id = "alexrodpas/phi3-mini-4k-qlora-python-code-20k"
+model_id = "alexrodpas/phi3-mini-4k-qlora-python-code-18k"
 device_map = "cuda"
 
 tokenizer = AutoTokenizer.from_pretrained(model_id,trust_remote_code=True)
